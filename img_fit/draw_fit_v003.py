@@ -1,7 +1,9 @@
 from ROOT import *
 
+#https://arxiv.org/pdf/1909.12273.pdf ; figure 3
+
 img = TImage.Open("data.jpg")
-c1 = TCanvas("c1")#,"The FillRandom example",200,10,700,900)
+c1 = TCanvas("c1")
 img.Draw("x")
 
 p = TPad("p","p",0.,0.,1.,1.)
@@ -10,7 +12,6 @@ p.SetFrameFillStyle(4000)
 p.Draw()
 p.cd()
 
-##2225, 2345
 x_min = 2250.
 x_max = 2300.
 
