@@ -1,2 +1,2 @@
 #Description
-#![alt text](https://github.com/vchulikov/pyroot/blob/master/Charmed_baryons_scheme/ksi_c_bars.JPG?raw=true)
+![alt text](https://github.com/vchulikov/pyroot/blob/master/Charmed_baryons_scheme/ksi_c_bars.JPG?raw=true)
