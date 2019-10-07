@@ -1,3 +1,3 @@
 # pyroot
 
-[hello!]http://psylib.org.ua/books/plato01/19fedon.htm#r6
+[hello!](http://psylib.org.ua/books/plato01/19fedon.htm#r6)
