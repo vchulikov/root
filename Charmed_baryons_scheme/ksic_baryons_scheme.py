@@ -107,7 +107,7 @@ axis_title.SetTextAngle(90)
 axis_title.SetTextSize(0.02)
 axis_title.Draw()
 
-#GeV/c2
+#MeV/c2
 title = TLatex()
 title.SetTextSize(0.03)
 title.DrawLatex(0.16, 1.05, "\[MeV/c^{2}")
