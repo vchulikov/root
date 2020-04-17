@@ -6,7 +6,7 @@ import math
 
 #Running
 #run use command python -i draw_fit_v003.py
-#for changing draw-parameters use execfile("draw_fit_v003.py") command in the interactive mode (after first run)
+#for changing draw-parameters use execfile("draw_fit.py") command in the interactive mode (after first run)
 
 #Description:
 #Gaussian-function (gaussian)
