@@ -58,7 +58,7 @@ p.Draw()
 p.cd()
 
 #create fucntion
-hist1 = gaussian(2250., 2300., 2290., 2., "" , 3)
+hist1 = gaussian(2250., 2300., 2290., 2., "" , 4)
 
 #frame-parameters
 p.SetMargin(0.15, 0.06, 0.19, 0.08)
