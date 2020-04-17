@@ -10,12 +10,12 @@ Gaussian-function (gaussian)\
 mu   : mean of gaussian function (expected value)\
 sigma: standard deviation
 
-#Linear-function (linear)
-#slope    : slope
-#intercept: intercept
+Linear-function (linear)\
+slope    : slope\
+intercept: intercept
 
-#Other options (in any function)
-#min_x: minimum of x-axis
-#max_x: maximun of x-axis
-#title: (optional) title of the histogram
-#color: (optional) line color
+Other options (in any function)\
+min_x: minimum of x-axis\
+max_x: maximun of x-axis\
+title: (optional) title of the histogram\
+color: (optional) line color
