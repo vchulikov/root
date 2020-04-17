@@ -7,8 +7,8 @@ Image was taken from: "Search for the doubly charmed baryon Ksi_cc+": https://ar
 #Description:
 
 Gaussian-function (gaussian)
-mu   : mean of gaussian function (expected value)
-sigma: standard deviation
+mu   : mean of gaussian function (expected value)\
+sigma: standard deviation\
 
 #Linear-function (linear)
 #slope    : slope
