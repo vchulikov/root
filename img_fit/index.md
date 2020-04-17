@@ -7,8 +7,8 @@ for changing draw-parameters use *execfile("draw_fit.py")* command in the intera
 # Description:
 
 Gaussian-function (gaussian)\
-mu   : mean of gaussian function (expected value)\
-sigma: standard deviation
+**mu**   : mean of gaussian function (expected value)\
+**sigma**: standard deviation
 
 Linear-function (linear)\
 **slope**    : slope\
