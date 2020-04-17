@@ -2,7 +2,7 @@ Image was taken from: "Search for the doubly charmed baryon Ksi_cc+": https://ar
 
 # How to run:
 run use command ***python -i draw_fit.py***\
-for changing draw-parameters use *execfile("draw_fit.py")* command in the interactive mode (after first run)
+for changing draw-parameters use ***execfile("draw_fit.py")*** command in the interactive mode (after first run)
 
 # Description:
 
