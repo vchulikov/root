@@ -5,8 +5,11 @@ Image was taken from: "Search for the doubly charmed baryon Ksi_cc+": https://ar
 #for changing draw-parameters use execfile("draw_fit.py") command in the interactive mode (after first run)
 
 #Description:
+
 #Gaussian-function (gaussian)
+
 #mu   : mean of gaussian function (expected value)
+
 #sigma: standard deviation
 
 #Linear-function (linear)
