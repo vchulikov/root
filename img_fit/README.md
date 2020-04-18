@@ -4,7 +4,7 @@ Image was taken from: "Search for the doubly charmed baryon Ksi_cc+": https://ar
 1. run use command ***python -i draw_fit.py***\
 for changing draw-parameters use ***execfile("draw_fit.py")*** command in the interactive mode (after first run)
 2. to generate random sampled distribution use 
-(***python -i pdf_generate.py*** )[https://github.com/vchulikov/pyroot/blob/master/img_fit/pdf_generator.py]
+[***python -i pdf_generate.py*** ](https://github.com/vchulikov/pyroot/blob/master/img_fit/pdf_generator.py)
 
 # Description:
 
