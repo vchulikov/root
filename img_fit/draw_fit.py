@@ -44,6 +44,19 @@ def linear(min_x, max_x, slope, intercept, title = "", color = 4):
  histogram.SetTitle(title)
  return histogram
 
+def crystal_ball(min_x, max_x, mu, sigma, alpha, n, title = "", color = 4):
+ mu = TFormula("mu",str(mu))
+ sigma = TFormula("sigma",str(sigma))
+ alpha = TFormula("alpha",str(alpha))
+ n = TFormula("n",str(n))
+ pi = math.pi
+ histogram = TF1("cb","ROOT::Math::crystalball_function(x, alpha, n, sigma, mu)",min_x,max_x)
+ histogram.SetParameters(10,4,1,20)
+ histogram.SetLineColor(color)
+ histogram.SetLineWidth(4)
+ histogram.SetTitle(title)
+ return histogram
+
 #path to picture
 img = TImage.Open("./data.jpg")
 canvas = TCanvas("canvas1")
