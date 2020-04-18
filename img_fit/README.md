@@ -14,6 +14,9 @@ Linear-function (linear)\
 **slope**    : slope\
 **intercept**: intercept
 
+Crystal-ball-function (crystal_ball)\
+**The parameters' description in this link (https://en.wikipedia.org/wiki/Crystal_Ball_function)**
+
 Other options (in any function)\
 **min_x**: minimum of x-axis\
 **max_x**: maximun of x-axis\
