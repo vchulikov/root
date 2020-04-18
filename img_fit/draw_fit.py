@@ -17,6 +17,14 @@ import math
 # slope    : slope
 # intercept: intercept
 
+#Crystal-ball-function (crystal_ball)
+#https://en.wikipedia.org/wiki/Crystal_Ball_function
+#mu   : mean value 
+#sigma: sigma (link)
+#alpha: alpha (link)
+#n    : n (link)
+
+
 #Other options (in any function)
 # min_x: minimum of x-axis
 # max_x: maximun of x-axis
