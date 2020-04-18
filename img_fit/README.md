@@ -1,8 +1,10 @@
 Image was taken from: "Search for the doubly charmed baryon Ksi_cc+": https://arxiv.org/pdf/1909.12273.pdf
 
 # How to run:
-run use command ***python -i draw_fit.py***\
+1. run use command ***python -i draw_fit.py***\
 for changing draw-parameters use ***execfile("draw_fit.py")*** command in the interactive mode (after first run)
+2. to generate random sampled distribution use ***python -i generate.py*** 
+
 
 # Description:
 
