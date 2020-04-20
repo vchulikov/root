@@ -1,3 +1,6 @@
+Requirements:
+[ROOT](https://root.cern.ch/)
+
 Image was taken from: "Search for the doubly charmed baryon Ksi_cc+": https://arxiv.org/pdf/1909.12273.pdf
 
 # How to run:
