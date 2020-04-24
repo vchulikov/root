@@ -23,12 +23,12 @@ hist1.FillRandom("fun",20000);
 
 hist1.Scale(1./hist1.GetSumOfWeights())
 
-#fill array
 for i in range(hist1.GetNbinsX()):
- bin_num = float(i)
  bin_cont = hist1.GetBinContent(i)
+ bin_cent = hist1.GetBinCenter(i)
  array.append([bin_num, bin_cont])
- f.write("{0},{1}{2}".format(bin_num, bin_cont, "\n"))
-
+ f.write(str(bin_cent) + "," + str(bin_cont) + "\n")
+ 
+ 
 #print(array)
 hist1.Draw("e1") #HIST!!!
