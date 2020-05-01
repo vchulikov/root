@@ -2,33 +2,14 @@
 import ROOT
 import numpy
 import math
+import Imports
 
-#create file, hist, array
-f = open("output_file.csv", "w")
-hist1 = ROOT.TH1F("h1", "h1", 100, 2250, 2320)
-array = ([])
+#choose function
 
-#CB
-#func = ROOT.TF1("fun","ROOT::Math::crystalball_function(x, 1., 4., 3.5, 2290)",2250,2320)
+#pdf = Imports.gaussian(2250., 2300., 2260., 3.6)
+#pdf = Imports.crystal_ball(2250., 2300., 2290., 3.8, 1., 1.)
+#pdf = Imports.linear(2250., 2300., 0.3, 1000.)
+pdf = Imports.exponent(2250., 2300., 0.3, 2290.)
 
-#GAUSSIAN
-mu = ROOT.TFormula("mu",str(2290))
-sigma = ROOT.TFormula("sigma",str(3.6))
-pi = math.pi
-func = ROOT.TF1("fun","[0]*exp((-0.5)*(x-mu)**2/(sigma**2))/(sigma**2*2*pi)**0.5",2250,2320)
-func.SetParameters(10,4,1,20)
-
-#fill hist follow distribution
-hist1.FillRandom("fun",20000);
-
-hist1.Scale(1./hist1.GetSumOfWeights())
-
-for i in range(hist1.GetNbinsX()):
- bin_cont = hist1.GetBinContent(i)
- bin_cent = hist1.GetBinCenter(i)
- array.append([bin_num, bin_cont])
- f.write(str(bin_cent) + "," + str(bin_cont) + "\n")
- 
- 
-#print(array)
-hist1.Draw("e1") #HIST!!!
+#generate
+Imports.generator_pdf(pdf)
