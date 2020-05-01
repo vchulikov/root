@@ -29,7 +29,7 @@ def gaussian(min_x, max_x, mu, sigma, title = "", color = 4):
  mu = ROOT.TFormula("mu",str(mu))
  sigma = ROOT.TFormula("sigma",str(sigma))
  pi = math.pi
- histogram = ROOT.TF1("fun","[0]*exp((-0.5)*(x-mu)**2/(sigma**2))/(sigma**2*2*pi)**0.5",min_x,max_x)
+ histogram = ROOT.TF1("fun","ROOT::Math::gaussian_pdf(x, sigma, mu)",min_x,max_x)
  histogram.SetParameters(10,4,1,20)
  histogram.SetLineColor(color)
  histogram.SetLineWidth(4)
