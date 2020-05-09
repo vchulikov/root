@@ -5,3 +5,5 @@
 [2. Images fitter](https://github.com/vchulikov/pyroot/tree/master/img_fit)
 
 [3. Dalitz Plots builder](https://github.com/vchulikov/pyroot/tree/master/DalitzDiagram)
+
+[4. Machine learning simple classification](https://github.com/vchulikov/pyroot/blob/master/ml_dist/pdf_generator.py)
