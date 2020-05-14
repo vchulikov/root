@@ -2,10 +2,10 @@ import ROOT
 import numpy
 import math
 
-data = numpy.genfromtxt("gen_1.csv", delimiter = ',')
-data2 = numpy.genfromtxt("gen_2.csv", delimiter = ',')
-data3 = numpy.genfromtxt("gen_d_1.csv", delimiter = ',')
-data4 = numpy.genfromtxt("gen_d_2.csv", delimiter = ',')
+data = numpy.genfromtxt("./files/gen_file_1.csv", delimiter = ',')
+data2 = numpy.genfromtxt("./files/gen_file_2.csv", delimiter = ',')
+data3 = numpy.genfromtxt("./files/gen_file_101.csv", delimiter = ',')
+data4 = numpy.genfromtxt("./files/gen_file_102.csv", delimiter = ',')
 
 
 hist1 = ROOT.TH1F("h1", "h1", 100, 0, 250)
