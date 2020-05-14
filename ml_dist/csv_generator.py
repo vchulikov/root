@@ -23,8 +23,12 @@ for i in range(1, files_num+1):
 
 
 #write this array to file
-for i in range(100): #number of bins in hist
+for i in range(101): #number of bins in hist
  for j in range(1, files_num+1):
   f.write(str(a[j-1][i]))
   f.write(",")
  f.write("\n")
+
+#transpose stuff
+#import pandas as pd
+#pd.read_csv('input.csv', header=None).T.to_csv('output.csv', header=False, index=False)
