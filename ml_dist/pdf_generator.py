@@ -1,34 +1,21 @@
-#generate hist follow pdf, save result in csv file
+#generate hist by pdf, save result in csv file
 import ROOT
 import numpy
 import math
+import Imports
 
-#GENERATE N-files by function "function"
-def files_generator(function, files):
- hist1 = ROOT.TH1F("h1", "h1", 100, 0, 250)
- for i in range(1, files+1):
-  f = open("./files/gen_file_" + str(i) + ".csv", "w")
-  #fill hist follow distribution
-  hist1.FillRandom("fun",20000)
-  hist1.Scale(1./hist1.GetSumOfWeights())
-  #fill array
-  for i in range(hist1.GetNbinsX()):
-   bin_num = float(i)
-   bin_cont = hist1.GetBinContent(i)
-   f.write(str(hist1.GetBinCenter(i)) + "," + str(bin_cont) + "\n")
-  f.close()
-
-#GAUSSIAN
-mu = ROOT.TFormula("mu",str(130)) #peak's center
-sigma = ROOT.TFormula("sigma",str(20)) #rmsd
-pi = math.pi
-func = ROOT.TF1("fun","[0]*exp((-0.5)*(x-mu)**2/(sigma**2))/(sigma**2*2*pi)**0.5",2250,2320)
-func.SetParameters(10,4,1,20)
-
-#SEED
+#Seed
 ROOT.gRandom.SetSeed(0)
+
+#disease func
+#func = Imports.two_gaussians(0., 250., 86., 33.5, 190., 33.5,"" , 4)
+#norm func
+func = Imports.gaussian(0., 250., 128., 21, "" , 4)
 
 #how many files need to create
 files_number = 100
-#generate by func
-files_generator(func, files_number)
+start_from   = 101 #1 - disease, 101 - norm
+event_type   = 1   #0 - disease, 1   - norm, 
+
+#generate datasets by pdf (func)
+Imports.files_generator(func, files_number, start_from, event_type)
