@@ -4,4 +4,5 @@
 4. Далее необходимо транспонировать полученный датасет и добавить в конец каждой строки индекс: 0 - для нормы, 1 - для заболевания (или наоборот). Запускаем скрипт [model.py](https://github.com/vchulikov/pyroot/blob/master/ml_dist/model.py), в котором модель учится, а после проверяет свои знания на введенных в строчку с переменной predict_dataset (примеры в скрипте). 
 
 P.S. Чтобы посмотреть полученные гистограммы, используем скрипт [draw_hists.py](https://github.com/vchulikov/pyroot/blob/master/ml_dist/additional/draw_hists.py).
+
 Для того, чтобы транспонировать используем скрипт [transpose_ds.py](https://github.com/vchulikov/pyroot/blob/master/ml_dist/additional/transpose_ds.py)
