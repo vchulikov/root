@@ -95,7 +95,8 @@ def files_generator(function, files, start_from, type_):
   #fill hist follow distribution
   hist1.FillRandom("fun",20000)#20000
   #hist1.Scale(1./hist1.GetSumOfWeights())
-  hist1.Scale(1./20000.) #normalization
+  print(hist1.GetSumOfWeights())
+  hist1.Scale(1./20000.) #normalization 20k as default value//40
   #fill array
   for i in range(hist1.GetNbinsX()):
    bin_num = float(i)
