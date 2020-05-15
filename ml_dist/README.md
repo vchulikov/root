@@ -5,4 +5,4 @@
 
 P.S. Чтобы посмотреть полученные гистограммы, используем скрипт [draw_hists.py](https://github.com/vchulikov/pyroot/blob/master/ml_dist/additional/draw_hists.py).
 
-Для того, чтобы транспонировать используем скрипт [transpose_ds.py](https://github.com/vchulikov/pyroot/blob/master/ml_dist/additional/transpose_ds.py)
+P.S.S. Для того, чтобы транспонировать используем скрипт [transpose_ds.py](https://github.com/vchulikov/pyroot/blob/master/ml_dist/additional/transpose_ds.py)
