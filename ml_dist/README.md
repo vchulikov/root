@@ -1,4 +1,4 @@
-Требования: tensorflow 2.0.0a0
+Требования: tensorflow (2.0.0a0)
 
 *pip install tensorflow*
 
