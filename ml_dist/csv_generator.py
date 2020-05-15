@@ -28,7 +28,3 @@ for i in range(101): #number of bins in hist
   f.write(str(a[j-1][i]))
   f.write(",")
  f.write("\n")
-
-#transpose stuff
-#import pandas as pd
-#pd.read_csv('input.csv', header=None).T.to_csv('output.csv', header=False, index=False)
