@@ -85,7 +85,7 @@ def linear(min_x, max_x, slope, intercept, title = "", color = 4):
  return histogram
 
 
-#GENERATE
+#GENERATION
 
 #GENERATE N-files by function "function"
 def files_generator(function, files, start_from, type_):
