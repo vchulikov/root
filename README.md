@@ -6,4 +6,4 @@
 
 [3. Dalitz Plots builder](https://github.com/vchulikov/pyroot/tree/master/DalitzDiagram)
 
-[4. Machine learning simple classification](https://github.com/vchulikov/pyroot/blob/master/ml_dist/pdf_generator.py)
+[4. Machine learning simple classification](https://github.com/vchulikov/pyroot/blob/master/ml_dist)
