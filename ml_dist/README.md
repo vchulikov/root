@@ -1,4 +1,4 @@
-Требования: tensorflow (2.0.0a0), numpy, math
+Требования: tensorflow (2.0.0a0), numpy, math, os, matplotlib.
 
 *pip install tensorflow* ([сайт](https://www.tensorflow.org/))
 
