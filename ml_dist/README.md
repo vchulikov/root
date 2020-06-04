@@ -1,5 +1,13 @@
 Требования: tensorflow (2.0.0a0), numpy, math, os, matplotlib.
 
+Lib | Version
+---|---
+python | 2.7.15+
+ROOT | 6.16/00
+tensorflow | 2.0.0a0
+root-numpy | 4.8.0
+numpy      | 1.16.5
+
 *pip install tensorflow* ([сайт](https://www.tensorflow.org/))
 
 1. Подбираем функцию плотности распределения по картинке, используя [draw_fit.py](https://github.com/vchulikov/pyroot/blob/master/ml_dist/draw_fit.py). Используем необходимую функцию из [Imports.py](https://github.com/vchulikov/pyroot/blob/master/ml_dist/Imports.py) (раздел PDF's), выставляем соответствующие хорошему фиту параметры.
