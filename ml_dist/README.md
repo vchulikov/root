@@ -5,7 +5,7 @@
 draw_fit.py       | python (2.7.15+), ROOT (6.16/00), numpy (?), math (?) 
 pdf_generator.py  | python (2.7.15+), ROOT (6.16/00), numpy (?), math (?)
 csv_generator.py  | python (2.7.15+), numpy (?)
-model.py          | python (2.7.15+), numpy (?), matplotlib, tensorflow, os
+model.py          | python (2.7.15+), numpy (?), matplotlib (?), tensorflow (?), os (?)
 draw_hists.py     | python (2.7.15+), ROOT (6.16/00), numpy (?)
 transpose_ds.py   | python (2.7.15+), pandas (?) 
 
