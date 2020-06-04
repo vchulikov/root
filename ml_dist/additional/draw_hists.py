@@ -1,6 +1,6 @@
 import ROOT
 import numpy
-import math
+#import math
 
 data = numpy.genfromtxt("./files/gen_file_1.csv", delimiter = ',')
 data2 = numpy.genfromtxt("./files/gen_file_2.csv", delimiter = ',')
