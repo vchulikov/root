@@ -10,7 +10,7 @@ os      | ?
 matplotlib      | ?
 math      | ?
 
-Как запустить?
+Как запустить:
 
 1. Подбираем функцию плотности распределения по картинке, используя [draw_fit.py](https://github.com/vchulikov/pyroot/blob/master/ml_dist/draw_fit.py). Используем необходимую функцию из [Imports.py](https://github.com/vchulikov/pyroot/blob/master/ml_dist/Imports.py) (раздел PDF's), выставляем соответствующие хорошему фиту параметры.
 2. Берем функцию распределения и параметры, полученные на предыдущем этапе. Подставляем их в [pdf_generator.py](https://github.com/vchulikov/pyroot/blob/master/ml_dist/pdf_generator.py), где выбираем количество файлов, которые будут сгенерированы *files_number = ...*. Файлы сохраняются в папку */files/*. Повторяем ту же процедуру для нормы (заболевания). Для правильной нормировки меняем строчку hist1.Scale в [Imports.py](https://github.com/vchulikov/pyroot/blob/master/ml_dist/Imports.py)
