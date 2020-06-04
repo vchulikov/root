@@ -1,14 +1,13 @@
 Требования: 
 
-Библиотека | Версия
----|---
-python | 2.7.15+
-ROOT | 6.16/00
-tensorflow | 2.0.0a0
-numpy      | ?
-os      | ?
-matplotlib      | ?
-math      | ?
+Скрипт | Требования 
+---    |---         
+draw_fit.py       | python (2.7.15+), ROOT (6.16/00), numpy (), math (?) 
+pdf_generator.py  | python (2.7.15+), ROOT (6.16/00), numpy (), math (?)
+csv_generator.py  | python (2.7.15+), numpy (?)
+model.py          | python (2.7.15+), numpy (), matplotlib, tensorflow, os
+draw_hists.py     | python (2.7.15+), ROOT (6.16/00), numpy ()
+transpose_ds.py   | python (2.7.15+), pandas () 
 
 Как запустить:
 
