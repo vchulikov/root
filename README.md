@@ -1,5 +1,3 @@
-# pyroot
-
 Requirements: [root](https://root.cern.ch/building-root)
 
 [1. Charmed baryons scheme](https://github.com/vchulikov/pyroot/tree/master/Charmed_baryons_scheme)
