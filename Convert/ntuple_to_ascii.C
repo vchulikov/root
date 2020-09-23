@@ -6,8 +6,8 @@
 using namespace std;
 
 void ntuple_to_ascii(){
-  TFile *f=new TFile("Xic_2012_8Tev_MagUp.root"); // file
-  TTree *tr=(TTree*)f->Get("ds_ksi2470"); // tree
+  TFile *f=new TFile("dataset.root"); // file
+  TTree *tr=(TTree*)f->Get("ds_k"); // tree
   tr->Scan(); // prints the content on the screen
 
   float pt,y,im;
@@ -17,7 +17,7 @@ void ntuple_to_ascii(){
   tr->SetBranchAddress("im",&im);
 
   ofstream myfile;
-  myfile.open ("2470_example.txt");
+  myfile.open ("ex_dataset.txt");
   myfile << "pt y im\n"; //column's names
 
   for (int i=0;i<tr->GetEntries();i++){
