@@ -1,6 +1,6 @@
 #SECOND PART
 #ASCII TO ROOT
-#REQUIREMENTS: ASCII-FILE (Xic_2012_8Tev_MagUp_ds_ksi2470.txt)
+#REQUIREMENTS: ASCII-FILE (dataset.txt)
 
 import re, array, os
 import ROOT
@@ -20,15 +20,15 @@ gROOT.ProcessLine(
 
 staff = ROOT.staff_t()
 
-f = TFile( 'Xic_2012_8Tev_MagUp.root', 'RECREATE' )
-tree = TTree( 'ds_ksi2470', 'staff data from ascii file' )
+f = TFile( 'dataset.root', 'RECREATE' )
+tree = TTree( 'ds_k', 'staff data from ascii file' )
 tree.Branch( 'pt', ROOT.AddressOf( staff, 'pt' ), 'pt/F' )
 tree.Branch( 'y', ROOT.AddressOf( staff, 'y' ), 'y/F' )
 tree.Branch( 'im', ROOT.AddressOf( staff, 'im' ), 'im/F' )
 tree.Branch( 'ntrk', ROOT.AddressOf( staff, 'ntrk' ), 'ntrk/F' )
 tree.Branch( 'lgi', ROOT.AddressOf( staff, 'lgi' ), 'lgi/F' )
 
-for line in open("PATH-TO-DIR/Xic_2012_8Tev_MagUp_ds_ksi2470.txt").readlines():
+for line in open("PATH-TO-DIR/dataset.txt").readlines():
  t = list(filter( lambda x: x, re.split( '\s+', line ) ) )
  staff.pt  = float(t[0])
  staff.y  = float(t[1])
