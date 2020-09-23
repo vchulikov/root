@@ -1,10 +1,10 @@
 #FIRST PART
 #DS TO ASCII
-#REQUIREMENTS: *.DS FROM GANGA (Xic_2012_8Tev_MagUp.ds)
+#REQUIREMENTS: *.DS FROM GANGA (dataset.ds)
 
 import ostap.io.zipshelve as zs
 
-db_file = zs.open("Xic_2012_8Tev_MagUp.ds", 'c')
-ds = db_file["ds_ksi2470"]
-ds.write("Xic_2012_8Tev_MagUp_ds_ksi2470.txt")
+db_file = zs.open("dataset.ds", 'c')
+ds = db_file["ds_k"]
+ds.write("dataset.txt")
 ds.Print()
