@@ -156,3 +156,5 @@ for (x, y) in test_dataset:
 
 print("Test set accuracy: {:.3%}".format(test_accuracy.result()))
 print(tf.stack([y,prediction],axis=1))
+
+tf.saved_model.save(model, './')
