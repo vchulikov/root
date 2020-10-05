@@ -18,38 +18,34 @@ class_names = ['Signal', 'Background']
 #0 - disease, 1 - normal
 
 def get_dataset(file_path, **kwargs):
-  column_names = []
-  for i in range(100):
-   column_names.append("bin_" + str(i+1))
-  column_names.append("sp")
-  print(column_names)
-  label_name = column_names[-1]
-  dataset = tf.data.experimental.make_csv_dataset(
-      file_path,
-      batch_size=50, #120 works worst
-      column_names=column_names,
-      label_name=label_name,
-      na_value="?",
-      num_epochs=1,
-      ignore_errors=True, 
-      **kwargs)
-  return dataset
+    column_names = []
+    for i in range(100):
+        column_names.append("bin_" + str(i+1))
+    column_names.append("sp")
+    print(column_names)
+    label_name = column_names[-1]
+    dataset = tf.data.experimental.make_csv_dataset(
+        file_path,
+        batch_size=50, #120 works worst
+        column_names=column_names,
+        label_name=label_name,
+        na_value="?",
+        num_epochs=1,
+        ignore_errors=True, 
+        **kwargs)
+    return dataset
 
-#raw_train_data = get_dataset("./dataset/peak_training.csv") #old sample 75 events
-#raw_train_data = get_dataset("./dataset/data_classifier.csv")
-
-#infarct
+#get data
 raw_train_data = get_dataset("./files/all_data.csv")
 
-
 #show features of data-sample
-#is just a standard tf operation to show what data class contains
+#its just a standard tf operation to show what data class contains
 features, labels = next(iter(raw_train_data))
 
 #pack features to array
 def pack_features_vector(features, labels):
-  features = tf.stack(list(features.values()), axis=1)
-  return features, labels
+    features = tf.stack(list(features.values()), axis=1)
+    return features, labels
 
 raw_train_data = raw_train_data.map(pack_features_vector)
 features, labels = next(iter(raw_train_data))
@@ -69,24 +65,23 @@ predictions = model(features)
 loss_object = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 
 def loss(model, x, y, training):
- y_ = model(x, training=training)
- return loss_object(y_true=y, y_pred=y_)
+   y_ = model(x, training=training)
+   return loss_object(y_true=y, y_pred=y_)
 
 l = loss(model, features, labels, training=False)
 print("Loss test: {}".format(l))
 
 #calculate gradient to model optimize
 def grad(model, inputs, targets):
-  with tf.GradientTape() as tape:
-    loss_value = loss(model, inputs, targets, training=True)
-  return loss_value, tape.gradient(loss_value, model.trainable_variables)
+    with tf.GradientTape() as tape:
+        loss_value = loss(model, inputs, targets, training=True)
+    return loss_value, tape.gradient(loss_value, model.trainable_variables)
 
 #choose optimizer and learning rate
 #optimizer = tf.keras.optimizers.Adam(learning_rate=0.06)#0.06
 optimizer = tf.keras.optimizers.SGD(learning_rate=0.015)#0.06 #Stohastic gradient descent
 
 loss_value, grads = grad(model, features, labels)
-
 
 #train loop begins
 train_loss_results = []
@@ -95,31 +90,32 @@ train_accuracy_results = []
 num_epochs = 21 #1001 #301
 
 for epoch in range(num_epochs):
-  epoch_loss_avg = tf.keras.metrics.Mean()
-  epoch_accuracy = tf.keras.metrics.SparseCategoricalAccuracy()
+    epoch_loss_avg = tf.keras.metrics.Mean()
+    epoch_accuracy = tf.keras.metrics.SparseCategoricalAccuracy()
 
   # Training loop - using batches of 32
-  for x, y in raw_train_data:
+    for x, y in raw_train_data:
     # Optimize the model
-    loss_value, grads = grad(model, x, y)
-    optimizer.apply_gradients(zip(grads, model.trainable_variables))
+        loss_value, grads = grad(model, x, y)
+        optimizer.apply_gradients(zip(grads, model.trainable_variables))
 
     # Track progress
-    epoch_loss_avg.update_state(loss_value)  # Add current batch loss
-    epoch_accuracy.update_state(y, model(x, training=True))
+        epoch_loss_avg.update_state(loss_value)  # Add current batch loss
+        epoch_accuracy.update_state(y, model(x, training=True))
 
   # End epoch
-  train_loss_results.append(epoch_loss_avg.result())
-  train_accuracy_results.append(epoch_accuracy.result())
+    train_loss_results.append(epoch_loss_avg.result())
+    train_accuracy_results.append(epoch_accuracy.result())
 
-  if epoch % 2 == 0:
-    print("Epoch {:03d}: Loss: {:.3f}, Accuracy: {:.3%}".format(epoch,
+    if epoch % 2 == 0:
+        print("Epoch {:03d}: Loss: {:.3f}, Accuracy: {:.3%}".format(epoch,
                                                                 epoch_loss_avg.result(),
                                                                 epoch_accuracy.result()))
 
-#PLOT_MATPLOTLIB
 
-#show learning results
+#PLOT
+
+#PLOT_MATPLOTLIB
 #fig, axes = plt.subplots(2, sharex=True, figsize=(12, 8))
 #fig.suptitle('Training Metrics')
 
@@ -132,47 +128,29 @@ for epoch in range(num_epochs):
 #plt.show()
 
 ##PLOT_ROOT
-
-print("Results")
-
 train_arr = []
 accur_arr = []
 
 #COST FUNCTION
 for i in range(len(train_loss_results)):
- train_arr.append(train_loss_results[i].numpy())
- print(train_loss_results[i].numpy())
+    train_arr.append(train_loss_results[i].numpy())
+    print(train_loss_results[i].numpy())
 
 #ACCURACY
 for i in range(len(train_loss_results)):
- accur_arr.append(train_accuracy_results[i].numpy())
- print(train_accuracy_results[i].numpy())
-
-
-print(len(train_arr))
-print(len(accur_arr))
-
-###ROOT PLOT
+    accur_arr.append(train_accuracy_results[i].numpy())
+    print(train_accuracy_results[i].numpy())
 
 hist1, hist2 = Imports.plot_results(train_arr, accur_arr)
-
 canv = ROOT.TCanvas("h", "h", 800, 800)
 canv.Divide(1, 2)
-
 canv.cd(1)
 hist1.Draw("hist")
-
 canv.cd(2)
 hist2.Draw("hist")
 
 
-
-#####
-
-#predict here:
-
-#1. dis
-#2. norm
+#PREDICTIONS
 predict_dataset = tf.convert_to_tensor([
 [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.000100010001916,0.000200010006665,0.000100010001916,0.000600059982389,0.000600030063652,0.000800160050858,0.0035002399236,0.00540042994544,0.00840090028942,0.0148015199229,0.0207023099065,0.0306030828506,0.040604352951,0.0594057627022,0.0660072863102,0.0846078470349,0.0879089385271,0.093909278512,0.0967091023922,0.0839086174965,0.0770079419017,0.0624061636627,0.0513050407171,0.038703661412,0.0271027591079,0.0192018318921,0.0128011703491,0.00720079941675,0.00290037994273,0.00150016008411,0.000600050028879,0.00040005997289,0.000100010001916,2.00020000563e-08,9.99999993923e-09,0.0,1.00000001686e-16,1.00000004904e-20,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 ],
@@ -185,34 +163,31 @@ print("PREDICTIONS:")
 print(predictions)
 
 for i, logits in enumerate(predictions):
-  class_idx = tf.argmax(logits).numpy() #color type "0", "1", "2"
-  p = tf.nn.softmax(logits)[class_idx] #probability
-  name = class_names[class_idx] #get name from class_names array
-  #CORRESPONDANCE TO THE CLASS
-  print("LOGITS:")
-  print(tf.nn.softmax(logits)[0])
-  print(tf.nn.softmax(logits)[1])
-  print(logits)
-  #PRINT RESULTS
-  print("Example {} prediction: {} ({:4.3f}%)".format(i, name, 100*p))
+    class_idx = tf.argmax(logits).numpy() #color type "0", "1", "2"
+    p = tf.nn.softmax(logits)[class_idx] #probability
+    name = class_names[class_idx] #get name from class_names array
+    #CORRESPONDANCE TO THE CLASS
+    print("LOGITS:")
+    print(tf.nn.softmax(logits)[0])
+    print(tf.nn.softmax(logits)[1])
+    print(logits)
+    #PRINT RESULTS
+    print("Example {} prediction: {} ({:4.3f}%)".format(i, name, 100*p))
 
-#random prediction from csv-file
 #predictions from another dataset
 test_dataset = get_dataset("./files/prev_data_2.csv")
 test_dataset = test_dataset.map(pack_features_vector)
 test_accuracy = tf.keras.metrics.Accuracy()
 
 for (x, y) in test_dataset:
-  logits = model(x, training=False)
-  prediction = tf.argmax(logits, axis=1, output_type=tf.int32)
-  test_accuracy(prediction, y)
+    logits = model(x, training=False)
+    prediction = tf.argmax(logits, axis=1, output_type=tf.int32)
+    test_accuracy(prediction, y)
 
 print("Test set accuracy: {:.3%}".format(test_accuracy.result()))
 print(tf.stack([y,prediction],axis=1))
 
 
 #SAVE MODEL
-
 tf.saved_model.save(model, './')
-
 
