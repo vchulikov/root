@@ -20,7 +20,7 @@ import numpy
 # max_x: maximun of x-axis
 # title: (optional) title of the histogram
 # color: (optional) line color
-#chairman в сессии, протон час (45 минут говорение)
+
 #more pdfs here: https://root.cern.ch/doc/v608/group__PdfFunc.html#ga58e74de4844774c4f2b9cdf2df4fb484
 
 def gaussian(min_x, max_x, mu, sigma, title = "", color = 4):
