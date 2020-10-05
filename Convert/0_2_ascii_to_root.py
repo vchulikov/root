@@ -2,7 +2,10 @@
 #ASCII TO ROOT
 #REQUIREMENTS: ASCII-FILE (dataset.txt)
 
-import re, array, os
+import os
+import array
+import re 
+
 import ROOT
 from ROOT import TFile, TTree, gROOT, addressof
 
