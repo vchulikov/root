@@ -7,15 +7,14 @@ import Imports
 #Seed
 ROOT.gRandom.SetSeed(0)
 
-#disease func
-#func = Imports.two_gaussians(0., 250., 86., 33.5, 190., 33.5,"" , 4)
-#norm func
-func = Imports.gaussian(0., 250., 128., 21, "" , 4)
-
-#how many files need to create
-files_number = 100
-start_from   = 101 #1 - disease, 101 - norm
-event_type   = 1   #0 - disease, 1   - norm, 
-
 #generate datasets by pdf (func)
-Imports.files_generator(func, files_number, start_from, event_type)
+Imports.files_generator(Imports.gaussian(-4, 4., 0.3, 0.34, "" , 4) , 50, 1,  0)
+Imports.files_generator(Imports.gaussian(-4, 4., -0.3, 0.34, "" , 4) , 25, 51,  0)
+Imports.files_generator(Imports.gaussian(-4, 4., 0.6, 0.34, "" , 4) , 25, 76,  0)
+
+
+Imports.files_generator(Imports.gaussian(-4, 4., 1.5, 0.8,  "" , 5) , 50, 101, 1)
+Imports.files_generator(Imports.gaussian(-4, 4., 1.7, 0.8,  "" , 5) , 25, 151, 1)
+Imports.files_generator(Imports.gaussian(-4, 4., 1.3, 0.8,  "" , 5) , 25, 176, 1)
+
+#Imports.files_generator(func, files_number, start_from, event_type)
