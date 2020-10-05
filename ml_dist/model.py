@@ -175,7 +175,7 @@ for i, logits in enumerate(predictions):
     print("Example {} prediction: {} ({:4.3f}%)".format(i, name, 100*p))
 
 #predictions from another dataset
-test_dataset = get_dataset("./files/prev_data_2.csv")
+test_dataset = get_dataset("./datasets/test_sample_1.csv")
 test_dataset = test_dataset.map(pack_features_vector)
 test_accuracy = tf.keras.metrics.Accuracy()
 
@@ -189,5 +189,5 @@ print(tf.stack([y,prediction],axis=1))
 
 
 #SAVE MODEL
-tf.saved_model.save(model, './')
+tf.saved_model.save(model, './saved_model')
 
