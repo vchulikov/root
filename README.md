@@ -6,6 +6,6 @@ Requirements: [root](https://root.cern.ch/building-root)
 
 [3. Dalitz Plot builder](https://github.com/vchulikov/pyroot/tree/master/DalitzPlot)
 
-[4. Machine learning simple classification](https://github.com/vchulikov/pyroot/blob/master/ml_dist)
+[4. Machine learning simple classification](https://github.com/vchulikov/pyroot/blob/master/TensorFlow_classification)
 
 [5. Dataset converters](https://github.com/vchulikov/root/tree/master/Convert)
