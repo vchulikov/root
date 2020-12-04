@@ -2,6 +2,13 @@ import ROOT
 import math
 import Imports
 
+def save_margin(pad):
+    l = pad.GetLeftMargin()
+    r = pad.GetRightMargin()
+    t = pad.GetTopMargin()
+    b = pad.GetBottomMargin()
+    print(str(l) +"||"+ str(r) +"||"+ str(t) + "||" + str(b))
+
 #Draw picture
 img = ROOT.TImage.Open("./data.png")
 canvas = ROOT.TCanvas("canvas1")
@@ -17,7 +24,7 @@ p.cd()
 #Signal
 #hist1 = Imports.gaussian(-4, 4., 0.3, 0.34, "" , 4)
 #Background
-hist1 = Imports.gaussian(-4, 4., 1.5, 0.8, "" , 5)
+hist1 = Imports.gaussian(-4, 6., 1.5, 0.8, "" , 5)
 
 #Set Frame-parameters
 p.SetMargin(0.15, 0.06, 0.19, 0.08)
