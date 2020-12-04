@@ -1,6 +1,6 @@
 import os
 import tensorflow as tf
-import numpy
+import numpy as np
 
 #GRAPHICS
 import Imports
@@ -141,13 +141,8 @@ for i in range(len(train_loss_results)):
     accur_arr.append(train_accuracy_results[i].numpy())
     print(train_accuracy_results[i].numpy())
 
-hist1, hist2 = Imports.plot_results(train_arr, accur_arr)
-canv = ROOT.TCanvas("h", "h", 800, 800)
-canv.Divide(1, 2)
-canv.cd(1)
-hist1.Draw("hist")
-canv.cd(2)
-hist2.Draw("hist")
+#save result of trains
+np.savez("learning_info", tr = train_arr, ac = accur_arr)
 
 
 #PREDICTIONS
