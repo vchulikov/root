@@ -1,6 +1,4 @@
-#FIRST PART
 #DS TO ASCII
-#REQUIREMENTS: *.DS FROM GANGA (dataset.ds)
 
 import ostap.io.zipshelve as zs
 
